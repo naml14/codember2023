@@ -4,8 +4,7 @@ const file = "./message_02.txt";
 const init = 0;
 
 try {
-  let steps = [];
-  steps = (await fs.readFile(file, { encoding: 'utf8' })).split('');
+  let steps = await fs.readFile(file, { encoding: 'utf8' });
   console.log(steps);
   let result = init;
   let submit = "";
