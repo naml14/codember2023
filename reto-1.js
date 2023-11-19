@@ -3,10 +3,8 @@ import * as fs from 'node:fs/promises';
 const file = "./message_01.txt";
 
 try {
-  const content = await fs.readFile(file, { encoding: 'utf8' })
-  console.log(content)
   let words = {};
-  content.replace("\n", '').toLowerCase().split(' ').forEach((word) => { words[word] = (words[word] || 0) + 1; })
+  (await fs.readFile(file, { encoding: 'utf8' })).replace("\n", '').toLowerCase().split(' ').forEach((word) => { words[word] = (words[word] || 0) + 1; })
   console.log(words);
   let result = "";
   let arr1 = Object.keys(words);
